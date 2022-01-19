@@ -1,5 +1,5 @@
 (ns clojush.pushgp.selection.lexicase
-  (:use [clojush random]))
+  (:use [clojush random globals]))
 
 (defn shuffle-cases
   [pop argmap]
@@ -29,6 +29,8 @@
       (lrand-nth survivors)
       (let [min-err-for-case (apply min (map #(nth % (first cases))
                                              (map :errors survivors)))]
+        (swap! lexicase-runtime #(+ % (count survivors)))
+        (swap! cases-used-count inc)
         (recur (filter #(= (nth (:errors %) (first cases)) min-err-for-case)
                        survivors)
                (rest cases))))))

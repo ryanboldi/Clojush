@@ -587,6 +587,8 @@
                (count (filter :is-random-replacement population)))))
     (println "--- Run Statistics ---")
     (println "Number of individuals evaluated (running on all training cases counts as 1 evaluation):" @evaluations-count)
+    (println "Number of cases evaluated (Using a single case in lexicase selection counts as 1 case):" @cases-used-count)
+    (println "Number of individuals checked (sum of # of individuals after every step of lexicase selection):" @lexicase-runtime)
     (println "Number of program executions (running on a single case counts as 1 execution):" program-executions-before-report)
     (println "Number of point (instruction) evaluations so far:" point-evaluations-before-report)
     (reset! point-evaluations-count point-evaluations-before-report)

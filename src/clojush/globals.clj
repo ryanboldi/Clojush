@@ -62,6 +62,12 @@
 (def program-executions-count (atom 0))
 ;; Used to count the number of times GP runs a program once
 
+(def cases-used-count (atom 0))
+;; Used to count the number of times a case is used
+
+(def lexicase-runtime (atom 0))
+;; sum of the number individuals are evaluated at every step of lexicase selection
+
 (def point-evaluations-count (atom 0)) 
 ;; Used to count the number of instructions that have been executed
 

@@ -110,6 +110,8 @@ with more weight given to certain cases by some metric.
       (lrand-nth survivors)
       (let [min-err-for-case (apply min (map #(nth % (first cases))
                                              (map #(:errors %) survivors)))]
+        (swap! cases-used-count inc)
+        (swap! lexicase-runtime #(+ % (count survivors)))
         (recur (filter #(= (nth (:errors %) (first cases)) min-err-for-case)
                        survivors)
                (rest cases))))))
@@ -148,6 +150,8 @@ with more weight given to certain cases by some metric.
      (lrand-nth survivors)
      (let [min-err-for-case (apply min (map #(nth % (first cases))
                                             (map #(:errors %) survivors)))]
+       (swap! cases-used-count inc)
+       (swap! lexicase-runtime #(+ % (count survivors)))
        (recur (filter #(= (nth (:errors %) (first cases)) min-err-for-case)
                       survivors)
               (rest cases)))))))
@@ -184,6 +188,8 @@ with more weight given to certain cases by some metric.
       (lrand-nth survivors)
       (let [min-err-for-case (apply min (map #(nth % (first cases))
                                              (map #(:errors %) survivors)))]
+        (swap! cases-used-count inc)
+        (swap! lexicase-runtime #(+ % (count survivors)))
         (recur (filter #(= (nth (:errors %) (first cases)) min-err-for-case)
                        survivors)
                (rest cases))))))
