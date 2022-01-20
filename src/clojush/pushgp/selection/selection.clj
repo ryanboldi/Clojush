@@ -12,7 +12,7 @@
         pop-with-meta-and-batch-errors (if (= case-batch-size 1)
                                          pop-with-meta-errors
                                          (batch-errors pop-with-meta-errors argmap))
-        preselected (preselect pop-with-meta-and-batch-errors argmap)
+        preselected (if (not (:no-preselection argmap)) (preselect pop-with-meta-and-batch-errors argmap) pop-with-meta-and-batch-errors)
         selected (case parent-selection
                    :tournament (tournament-selection preselected argmap)
                    :lexicase (lexicase-selection preselected argmap)

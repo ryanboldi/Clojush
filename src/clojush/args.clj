@@ -22,6 +22,7 @@
           ;;----------------------------------------
           ;; Standard GP arguments
           ;;----------------------------------------
+         :no-preselection false
 
          :error-function (fn [p] '(0))
           ;; Function that takes a program and returns a list of errors.
