@@ -1,4 +1,5 @@
 *~
+*.mdb
 .DS_Store
 .lein-deps-sum
 .lein-repl-history
@@ -27,3 +28,6 @@ clojush.iml
 .ipynb_checkpoints/
 .lein-project-checksum
 scratch.clj
+.clj-kondo/.cache/v1/clj/bencode.core.transit.json
+*.json
+.clj-kondo/.cache/v1/lock
